@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/math-exercise-app/static/css/main.508c3ff1.css",
-    "main.js": "/math-exercise-app/static/js/main.ad252db9.js",
+    "main.js": "/math-exercise-app/static/js/main.109595cf.js",
     "static/js/787.28cb0dcd.chunk.js": "/math-exercise-app/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/math-exercise-app/index.html",
     "main.508c3ff1.css.map": "/math-exercise-app/static/css/main.508c3ff1.css.map",
-    "main.ad252db9.js.map": "/math-exercise-app/static/js/main.ad252db9.js.map",
+    "main.109595cf.js.map": "/math-exercise-app/static/js/main.109595cf.js.map",
     "787.28cb0dcd.chunk.js.map": "/math-exercise-app/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.508c3ff1.css",
-    "static/js/main.ad252db9.js"
+    "static/js/main.109595cf.js"
   ]
 }
