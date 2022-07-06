@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Main.css";
 import Execution from "../../Execution.js";
-import ProduceProblem from "../../produceProblem";
+import ProduceProblem from "../../ProduceProblem";
 
 
 function Main(){
