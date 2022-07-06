@@ -1,0 +1,75 @@
+.main-container {
+    margin: 100px auto 100px auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.problem-area {
+    display: flex;
+    margin: 50px auto ;
+    flex-direction: column;
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.outer-answerbox-container {
+    height: 3rem;
+}
+
+.answerbox-container {
+    margin: auto;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.equal {
+    vertical-align: middle;
+    margin: auto;
+    width: 30px;
+}
+
+.answerbox-container > input {
+    height: 30px;
+    width: 150px;
+    margin: auto;
+    vertical-align: middle;
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button {
+    height: 80px;
+    width: 240px;
+    margin: 20px;
+    font-size: 18px;
+    color: azure;
+    border-width: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#get-new-button {
+    background-color: #3AB0FF;
+}
+
+#check-button {
+    background-color: #FFB562;
+}
+
+.solve-message {
+    font-size: 24px;
+}
+
+.correct-message {
+    color: #53BF9D;
+    font-size: 36px;
+}
+
+.incorrect-message{
+    color: #F24C4C;
+    font-size: 36px;
+}
