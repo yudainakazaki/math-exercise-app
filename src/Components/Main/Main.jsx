@@ -90,15 +90,15 @@ function Main(){
             </div>
             <div className="problem-area">
                 <div className="problem-container">
-                    <label id="problem">Click "GET NEW PROBLEM"</label>
+                    <label id="problem">Click "START"</label>
                 </div>
                 <div className="outer-answerbox-container">
                     {renderAnswerSection()}
                 </div>
             </div>
-            <div className="button-container">
-                <button className="button" id="get-new-button" onClick={handleGetNew}>GET NEW PROBLEM</button>
-                <button className="button" id="check-button" onClick={handleGetAnswer}>CHECK YOUR ANSWER</button>
+            <div className="button-container"> 
+                {state === "init" ? <button className="button" id="get-new-button" onClick={handleGetNew}>START</button> : <button className="button" id="get-new-button" onClick={handleGetNew}>GET NEW PROBLEM</button>}
+                {state !== "init" && <button className="button" id="check-button" onClick={handleGetAnswer}>CHECK YOUR ANSWER</button>}
             </div>
         </div>
     )
