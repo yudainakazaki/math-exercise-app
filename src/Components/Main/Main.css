@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+.message-container {
+    height: 80px;
+}
+
 .problem-area {
     display: flex;
     margin: 50px auto ;

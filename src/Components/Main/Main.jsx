@@ -59,13 +59,13 @@ function Main(){
             if(isCorrect){
                 return(
                     <div>
-                        <span className="correct-message">Your solution is correct :D</span>
+                        <span className="correct-message">Your solution is correct 🥳</span>
                     </div>
                 )
             }else{
                 return(
                     <div>
-                        <span className="incorrect-message">Your solution is incorrect.</span>
+                        <span className="incorrect-message">Your solution is incorrect 😢</span>
                     </div>
                 )
             }
@@ -85,7 +85,9 @@ function Main(){
 
     return (
         <div className="main-container">
-            <Message />
+            <div className="message-container">
+                <Message />
+            </div>
             <div className="problem-area">
                 <div className="problem-container">
                     <label id="problem">Click "GET NEW PROBLEM"</label>
