@@ -1,5 +1,4 @@
 import React from "react";
-// import ReactDOM from "react-dom";
 import { useState } from "react";
 import "./Main.css";
 import Execution from "../../Execution.js";
@@ -10,7 +9,10 @@ function Main(){
 
     const [state, setState] = useState("init");
     const [inputText, setInputText] = useState("");
-    const [problem, setProblem] = useState(["", ""]);
+    const [problem, setProblem] = useState({
+        problem: "",
+        solution: ""
+    });
     const [isCorrect, setIsCorrect] = useState(true);
 
     const getNewProblem = () => {
@@ -18,9 +20,10 @@ function Main(){
         const createProblem = new ProduceProblem()
         let newProblem = createProblem.produceProblem();
         let newSolution = exec.exec(newProblem)
-        console.log(newProblem);
-        console.log(newSolution);
-        setProblem([newProblem, newSolution]);
+        setProblem({
+            problem: newProblem, 
+            solution: newSolution
+        });
     }
 
     const handleGetNew = () => {
@@ -32,6 +35,17 @@ function Main(){
     const handleChange = event => {
         setInputText(event.target.value);
     };
+
+    const handleGetAnswer = () => {
+        setState("result");
+        console.log("Input: " + inputText);
+        console.log("Solution: " + problem.problem);
+        if (inputText.toString() === problem.solution) {
+            setIsCorrect(true);
+        }else{
+            setIsCorrect(false);
+        }
+    }
 
     const Message = () => {
         if (state === "solve"){
@@ -58,17 +72,16 @@ function Main(){
         }
     }
 
-    const handleGetAnswer = () => {
-        setState("result");
-        console.log("Input: " + inputText);
-        console.log("Solution: " + problem[1]);
-        if (inputText.toString() === problem[1]) {
-            setIsCorrect(true);
-        }else{
-            setIsCorrect(false);
+    const renderAnswerSection = () => {
+        if(state !== "init"){
+            return(
+                <div className="answerbox-container">
+                    <div className="equal"> = </div>
+                    <input id="input-box" value={inputText} type="text" onChange={handleChange}></input>
+                </div>
+            );
         }
     }
-
 
     return (
         <div className="main-container">
@@ -78,12 +91,7 @@ function Main(){
                     <label id="problem">Click "GET NEW PROBLEM"</label>
                 </div>
                 <div className="outer-answerbox-container">
-                    {state !== "init" && (
-                        <div className="answerbox-container">
-                            <div className="equal"> = </div>
-                            <input id="input-box" value={inputText} type="text" onChange={handleChange}></input>
-                        </div>
-                    )}
+                    {renderAnswerSection()}
                 </div>
             </div>
             <div className="button-container">
