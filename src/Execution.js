@@ -8,14 +8,11 @@ export default class Execution {
         }
     }
 
-    getPrecedence(c){
-        if (c === "+" || c === "-"){
-            return 1;
-        } else {
-            return 2;
-        }
-    }
+    getPrecedence = (c) => (c === "+" || c === "-") ? 1 : 2;
 
+    isNum = (val) => !isNaN(val);
+
+    //Shunting Yard Algorithm 
     infixToRPN(exp){
         let stack = [];
         let resExp = [];
@@ -43,13 +40,9 @@ export default class Execution {
         return resExp;
     }
 
-    isNum(val){
-        return !isNaN(val);
-    }
-
     exec(exp){
-
         exp = this.infixToRPN(exp);
+        console.log(exp);
 
         let stack = [];
         for (let i = 0; i < exp.length; i++){
@@ -68,8 +61,7 @@ export default class Execution {
                     let second = stack.pop();
                     let first = stack.pop();
                     stack.push(first*second);
-                }
-                else if(exp[i] === "÷"){
+                }else if(exp[i] === "÷"){
                     let second = stack.pop();
                     let first = stack.pop();
                     stack.push(first/second);

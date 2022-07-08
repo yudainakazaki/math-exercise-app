@@ -4,21 +4,20 @@ import "./Main.css";
 import Execution from "../../Execution.js";
 import ProduceProblem from "../../ProduceProblem";
 
-
 function Main(){
 
     const [state, setState] = useState("init");
     const [inputText, setInputText] = useState("");
+    const [isCorrect, setIsCorrect] = useState(true);
     const [problem, setProblem] = useState({
         problem: "",
         solution: ""
     });
-    const [isCorrect, setIsCorrect] = useState(true);
 
     const getNewProblem = () => {
         const exec = new Execution();
-        const createProblem = new ProduceProblem()
-        let newProblem = createProblem.produceProblem();
+        const getProblem = new ProduceProblem()
+        let newProblem = getProblem.produceProblem();
         let newSolution = exec.exec(newProblem)
         setProblem({
             problem: newProblem, 
@@ -26,7 +25,7 @@ function Main(){
         });
     }
 
-    const handleGetNew = () => {
+    const handleGetProblem = () => {
         setState("solve");
         setInputText("");
         getNewProblem();
@@ -38,8 +37,6 @@ function Main(){
 
     const handleGetAnswer = () => {
         setState("result");
-        console.log("Input: " + inputText);
-        console.log("Solution: " + problem.problem);
         if (inputText.toString() === problem.solution) {
             setIsCorrect(true);
         }else{
@@ -97,7 +94,7 @@ function Main(){
                 </div>
             </div>
             <div className="button-container"> 
-                {state === "init" ? <button className="button" id="get-new-button" onClick={handleGetNew}>START</button> : <button className="button" id="get-new-button" onClick={handleGetNew}>GET NEW PROBLEM</button>}
+                {state === "init" ? <button className="button" id="get-new-button" onClick={handleGetProblem}>START</button> : <button className="button" id="get-new-button" onClick={handleGetProblem}>GET NEW PROBLEM</button>}
                 {state !== "init" && <button className="button" id="check-button" onClick={handleGetAnswer}>CHECK YOUR ANSWER</button>}
             </div>
         </div>
