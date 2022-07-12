@@ -21,22 +21,20 @@ export default class ProduceProblem{
         var problemString = "";
         for (let i = 0; i < problemLen; i++){
             if (i%2 === 0){
-                var num;
-                if (curOp === "÷"){
-                    num = Math.floor(Math.random() * 10) + 1;
-                }else {
-                    num = Math.floor(Math.random() * 10);
-                }
+                var num = (curOp === "÷") ? 
+                    Math.floor(Math.random() * 10) + 1:
+                    Math.floor(Math.random() * 10);
                 problemString += this.getPrefOp(num) + num.toString() + " ";
             } else {
                 curOp = operatorVals[Math.floor(Math.random() * 4)];
                 problemString += curOp + " ";
             }
         }
+
         problemString = problemString.slice(0,problemString.length-1);
         document.getElementById("problem").innerHTML = problemString;
-
+        
+        //Return a problem in an infix notation in string
         return problemString;
-
     }
 }
